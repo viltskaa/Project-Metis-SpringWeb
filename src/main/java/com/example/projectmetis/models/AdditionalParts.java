@@ -10,4 +10,5 @@ public class AdditionalParts {
     private Long timeAssembly;
     private String article;
     private User user;
+    private Table table;
 }

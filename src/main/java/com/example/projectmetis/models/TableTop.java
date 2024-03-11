@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 public class TableTop {
     @Id
-    private long id;
+    private Long id;
     private double width;
     private double height;
     private double perimeter;
@@ -21,7 +21,7 @@ public class TableTop {
     private String material;
     @Indexed(unique = true)
     private String article;
-    private long timeAssembly;
+    private Long timeAssembly;
     private User user;
 
 }

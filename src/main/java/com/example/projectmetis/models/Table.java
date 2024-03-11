@@ -12,13 +12,13 @@ import java.util.List;
 @Getter
 public class Table {
     @Id
-    private long id;
+    private Long id;
     private String article;
-    private long timeAssembly;
+    private Long timeAssembly;
     private List<Byte> qrCode;
     private TableTop tableTop;
-    private long marketPlaceId;
+    private Long marketPlaceId;
     private User user;
-
+    private List<AdditionalParts> additionalParts;
 
 }
