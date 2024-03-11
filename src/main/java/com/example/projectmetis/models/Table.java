@@ -19,4 +19,5 @@ public class Table {
     private TableTop tableTop;
     private long marketPlaceId;
 
+
 }
