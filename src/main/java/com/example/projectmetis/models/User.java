@@ -1,24 +1,19 @@
 package com.example.projectmetis.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import com.nimbusds.jose.util.Pair;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Setter
-@Getter
+@Document
 public class User {
     @Id
     private Long id;
-    @Column
     private String name;
-    private List<Integer> work;
+    private List<Pair<Integer, Integer>> work;
     private List<Integer> tables;
-    public User(){}
-
+    @DBRef
+    private List<AdditionalParts> additionalParts;
 }
