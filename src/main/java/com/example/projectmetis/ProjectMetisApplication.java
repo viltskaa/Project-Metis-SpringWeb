@@ -9,5 +9,4 @@ public class ProjectMetisApplication {
     public static void main(String[] args) {
         SpringApplication.run(ProjectMetisApplication.class, args);
     }
-
 }
