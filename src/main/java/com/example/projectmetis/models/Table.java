@@ -18,6 +18,7 @@ public class Table {
     private List<Byte> qrCode;
     private TableTop tableTop;
     private long marketPlaceId;
+    private User user;
 
 
 }

@@ -13,7 +13,10 @@ public class User {
     private Long id;
     private String name;
     private List<Pair<Integer, Integer>> work;
-    private List<Integer> tables;
     @DBRef
     private List<AdditionalParts> additionalParts;
+    @DBRef
+    private List<Table> tables;
+    @DBRef
+    private List<TableTop> tableTops;
 }

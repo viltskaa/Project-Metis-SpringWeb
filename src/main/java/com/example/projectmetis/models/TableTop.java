@@ -22,4 +22,6 @@ public class TableTop {
     @Indexed(unique = true)
     private String article;
     private long timeAssembly;
+    private User user;
+
 }
