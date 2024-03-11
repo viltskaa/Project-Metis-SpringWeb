@@ -12,10 +12,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class TableTop {
     @Id
     private long id;
-    private float width;
-    private float height;
-    private float perimeter;
-    private float depth;
+    private double width;
+    private double height;
+    private double perimeter;
+    private double depth;
     private String colorMain;
     private String colorEdge;
     private String material;
