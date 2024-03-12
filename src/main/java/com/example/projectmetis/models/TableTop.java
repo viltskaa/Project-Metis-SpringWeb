@@ -23,5 +23,4 @@ public class TableTop {
     private String article;
     private Long timeAssembly;
     private User user;
-
 }
