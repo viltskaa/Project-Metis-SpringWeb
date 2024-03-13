@@ -16,7 +16,7 @@ public class User {
     @Id
     private Long id;
     private String name;
-    private List<Pair<Integer, Integer>> work;
+    private List<Pair<Long, Long>> work;
     @DBRef
     private List<AdditionalParts> additionalParts;
     @DBRef
