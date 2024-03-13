@@ -6,10 +6,12 @@ import com.example.projectmetis.repos.UserRepository;
 import com.example.projectmetis.service.ServiceInterface;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class UserService implements ServiceInterface<User, UserDto> {
     private final UserRepository userRepository;
 
@@ -49,7 +51,7 @@ public class UserService implements ServiceInterface<User, UserDto> {
     @Override
     public @Nullable User deleteByName(@NotNull String name) {
         Optional<User> user = userRepository.findByName(name);
-        if (user.isEmpty()) return new User();
+        if (user.isEmpty()) return null;
 
         userRepository.deleteById(user.get().getId());
         return user.get();
@@ -62,9 +64,9 @@ public class UserService implements ServiceInterface<User, UserDto> {
 
     @Override
     public @Nullable User edit(@NotNull UserDto dto) {
-        User user = userRepository.findById(dto.getId()).orElse(null);
-        if (user == null) return null;
-        user.setName(dto.getName());
-        return userRepository.save(user);
+        Optional<User> user = userRepository.findById(dto.getId());
+        if (user.isEmpty()) return null;
+        user.get().setName(dto.getName());
+        return userRepository.save(user.get());
     }
 }
