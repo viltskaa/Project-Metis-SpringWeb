@@ -6,10 +6,12 @@ import com.example.projectmetis.repos.AdditionalPartsRepository;
 import com.example.projectmetis.service.ServiceInterface;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class AdditionalPartsService
         implements ServiceInterface<AdditionalParts, AdditionalPartsDto> {
     private final AdditionalPartsRepository additionalPartsRepository;
@@ -30,8 +32,8 @@ public class AdditionalPartsService
     }
 
     @Override
-    public @Nullable AdditionalParts getByName(@NotNull String name) {
-        throw new UnsupportedOperationException();
+    public @Nullable AdditionalParts getByName(@NotNull String name) throws UnsupportedOperationException {
+        throw new UnsupportedOperationException("Unsupported operation");
     }
 
     @Override
@@ -47,8 +49,8 @@ public class AdditionalPartsService
     }
 
     @Override
-    public @Nullable AdditionalParts deleteByName(@NotNull String name) {
-        throw new UnsupportedOperationException();
+    public @Nullable AdditionalParts deleteByName(@NotNull String name) throws UnsupportedOperationException {
+        throw new UnsupportedOperationException("Unsupported operation");
     }
 
     @Override
