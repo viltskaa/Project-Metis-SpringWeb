@@ -1,12 +1,10 @@
 package com.example.projectmetis.service.Implements;
 
 import com.example.projectmetis.dto.TableDto;
-import com.example.projectmetis.dto.TableTopDto;
 import com.example.projectmetis.models.Table;
 import com.example.projectmetis.models.TableTop;
 import com.example.projectmetis.models.User;
 import com.example.projectmetis.repos.TableRepository;
-import com.example.projectmetis.repos.TableTopRepository;
 import com.example.projectmetis.service.ServiceInterface;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
