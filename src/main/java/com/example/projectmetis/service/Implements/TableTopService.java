@@ -7,17 +7,25 @@ import com.example.projectmetis.repos.TableTopRepository;
 import com.example.projectmetis.service.ServiceInterface;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class TableTopService implements ServiceInterface<TableTop, TableTopDto> {
-
     private final TableTopRepository tableTopRepository;
 
-    public TableTop create(double width, double height, double perimeter,
-                           double depth, String colorMain, String colorEdge, String material,
-                           String article, Long timeAssembly, User user) {
+    public TableTop create(double width,
+                           double height,
+                           double perimeter,
+                           double depth,
+                           String colorMain,
+                           String colorEdge,
+                           String material,
+                           String article,
+                           Long timeAssembly,
+                           User user) {
         TableTop tableTop = new TableTop();
         tableTop.setTimeAssembly(timeAssembly);
         tableTop.setArticle(article);
@@ -42,8 +50,8 @@ public class TableTopService implements ServiceInterface<TableTop, TableTopDto> 
     }
 
     @Override
-    public @Nullable TableTop getByName(@NotNull String name) {
-        throw new UnsupportedOperationException();
+    public @Nullable TableTop getByName(@NotNull String name) throws UnsupportedOperationException {
+        throw new UnsupportedOperationException("Unsupported operation");
     }
 
     @Override
@@ -59,8 +67,8 @@ public class TableTopService implements ServiceInterface<TableTop, TableTopDto> 
     }
 
     @Override
-    public @Nullable TableTop deleteByName(@NotNull String name) {
-        throw new UnsupportedOperationException();
+    public @Nullable TableTop deleteByName(@NotNull String name) throws UnsupportedOperationException {
+        throw new UnsupportedOperationException("Unsupported operation");
     }
 
     @Override
