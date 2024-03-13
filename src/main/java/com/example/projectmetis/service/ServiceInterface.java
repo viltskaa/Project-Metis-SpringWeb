@@ -1,6 +1,5 @@
 package com.example.projectmetis.service;
 
-import com.example.projectmetis.models.User;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
