@@ -10,15 +10,21 @@ import com.example.projectmetis.repos.TableTopRepository;
 import com.example.projectmetis.service.ServiceInterface;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class TableService implements ServiceInterface<Table, TableDto> {
-
     private final TableRepository tableRepository;
 
-    public Table create(String article,Long timeAssembly, List<Byte> qrCode,TableTop tableTop,Long marketPlaceId,User user) {
+    public Table create(String article,
+                        Long timeAssembly,
+                        List<Byte> qrCode,
+                        TableTop tableTop,
+                        Long marketPlaceId,
+                        User user) {
         Table table = new Table();
         table.setTimeAssembly(timeAssembly);
         table.setArticle(article);
@@ -39,8 +45,8 @@ public class TableService implements ServiceInterface<Table, TableDto> {
     }
 
     @Override
-    public @Nullable Table getByName(@NotNull String name) {
-        throw new UnsupportedOperationException();
+    public @Nullable Table getByName(@NotNull String name) throws UnsupportedOperationException {
+        throw new UnsupportedOperationException("Unsupported operation");
     }
 
     @Override
@@ -56,8 +62,8 @@ public class TableService implements ServiceInterface<Table, TableDto> {
     }
 
     @Override
-    public @Nullable Table deleteByName(@NotNull String name) {
-        throw new UnsupportedOperationException();
+    public @Nullable Table deleteByName(@NotNull String name) throws UnsupportedOperationException {
+        throw new UnsupportedOperationException("Unsupported operation");
     }
 
     @Override
