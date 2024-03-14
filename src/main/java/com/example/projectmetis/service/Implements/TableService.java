@@ -19,17 +19,18 @@ public class TableService implements ServiceInterface<Table, TableDto> {
 
     private final TableRepository tableRepository;
     private final AdditionalPartsService additionalPartsService;
+    private final UserService userService;
 
     public Table create(String article,
                         Long timeAssembly,
                         List<Byte> qrCode,
                         TableTop tableTop,
                         Long marketPlaceId,
-                        User user, String ... parts_articles) {
+                        Long userId, String ... parts_articles) {
         Table table = new Table();
         table.setTimeAssembly(timeAssembly);
         table.setArticle(article);
-        table.setUser(user);
+        table.setUser(userService.getById(userId));
         table.setMarketPlaceId(marketPlaceId);
         table.setQrCode(qrCode);
         table.setTableTop(tableTop);
@@ -49,9 +50,10 @@ public class TableService implements ServiceInterface<Table, TableDto> {
     }
 
     public TableService(TableRepository tableRepository,
-                        AdditionalPartsService additionalPartsService) {
+                        AdditionalPartsService additionalPartsService, UserService userService) {
         this.tableRepository = tableRepository;
         this.additionalPartsService = additionalPartsService;
+        this.userService = userService;
     }
 
     @Override

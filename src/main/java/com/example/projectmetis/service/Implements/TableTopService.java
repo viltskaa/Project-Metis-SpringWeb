@@ -2,7 +2,6 @@ package com.example.projectmetis.service.Implements;
 
 import com.example.projectmetis.dto.TableTopDto;
 import com.example.projectmetis.models.TableTop;
-import com.example.projectmetis.models.User;
 import com.example.projectmetis.repos.TableTopRepository;
 import com.example.projectmetis.service.ServiceInterface;
 import org.jetbrains.annotations.NotNull;
@@ -15,6 +14,7 @@ import java.util.Optional;
 @Service
 public class TableTopService implements ServiceInterface<TableTop, TableTopDto> {
     private final TableTopRepository tableTopRepository;
+    private final UserService userService;
 
     public TableTop create(double width,
                            double height,
@@ -25,14 +25,14 @@ public class TableTopService implements ServiceInterface<TableTop, TableTopDto> 
                            String material,
                            String article,
                            Long timeAssembly,
-                           User user) {
+                           Long userId) {
         TableTop tableTop = new TableTop();
         tableTop.setTimeAssembly(timeAssembly);
         tableTop.setArticle(article);
         tableTop.setHeight(height);
         tableTop.setDepth(depth);
         tableTop.setMaterial(material);
-        tableTop.setUser(user);
+        tableTop.setUser(userService.getById(userId));
         tableTop.setColorMain(colorMain);
         tableTop.setColorEdge(colorEdge);
         tableTop.setWidth(width);
@@ -40,8 +40,9 @@ public class TableTopService implements ServiceInterface<TableTop, TableTopDto> 
         return tableTopRepository.save(tableTop);
     }
 
-    public TableTopService(TableTopRepository tableTopRepository) {
+    public TableTopService(TableTopRepository tableTopRepository, UserService userService) {
         this.tableTopRepository = tableTopRepository;
+        this.userService = userService;
     }
 
     @Override
