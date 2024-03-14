@@ -73,7 +73,14 @@ public class TableService implements ServiceInterface<Table, TableDto> {
     public @Nullable Table edit(@NotNull TableDto dto) {
         Table object = tableRepository.findById(dto.getId()).orElse(null);
         if (object == null) return null;
-        object.setId(dto.getId());
+        object.setArticle(dto.getArticle());
+        object.setTimeAssembly(dto.getTimeAssembly());
+        object.setQrCode(dto.getQrCode());
+        object.setTableTop(dto.getTableTop());
+        object.setMarketPlaceId(dto.getMarketPlaceId());
+        object.setUser(dto.getUser());
         return tableRepository.save(object);
     }
+
+
 }

@@ -19,7 +19,6 @@ public class TableTop {
     private String colorMain;
     private String colorEdge;
     private String material;
-    @Indexed(unique = true)
     private String article;
     private Long timeAssembly;
     private User user;
