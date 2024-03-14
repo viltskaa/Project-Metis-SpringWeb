@@ -16,6 +16,7 @@ public class User {
     @Id
     private Long id;
     private String name;
+    // <начало (unix), конец (unix)>
     private List<Pair<Long, Long>> work;
     @DBRef
     private List<AdditionalParts> additionalParts;

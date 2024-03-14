@@ -2,6 +2,7 @@ package com.example.projectmetis.service.Implements;
 
 import com.example.projectmetis.dto.AdditionalPartsDto;
 import com.example.projectmetis.models.AdditionalParts;
+import com.example.projectmetis.models.User;
 import com.example.projectmetis.repos.AdditionalPartsRepository;
 import com.example.projectmetis.service.ServiceInterface;
 import org.jetbrains.annotations.NotNull;
@@ -15,15 +16,20 @@ import java.util.Optional;
 public class AdditionalPartsService
         implements ServiceInterface<AdditionalParts, AdditionalPartsDto> {
     private final AdditionalPartsRepository additionalPartsRepository;
+    private final UserService userService;
 
-    public AdditionalPartsService(AdditionalPartsRepository additionalPartsRepository) {
+    public AdditionalPartsService(AdditionalPartsRepository additionalPartsRepository,
+                                  UserService userService) {
         this.additionalPartsRepository = additionalPartsRepository;
+        this.userService = userService;
     }
 
-    public AdditionalParts create(Long timeAssembly, String article){
+    public AdditionalParts create(Long timeAssembly, String article, Long userId){
         AdditionalParts additionalParts = new AdditionalParts();
         additionalParts.setTimeAssembly(timeAssembly);
         additionalParts.setArticle(article);
+        // добавление того, кто изготовил
+        additionalParts.setUser(userService.getById(userId));
         return additionalPartsRepository.save(additionalParts);
     }
     @Override
