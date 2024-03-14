@@ -80,7 +80,16 @@ public class TableTopService implements ServiceInterface<TableTop, TableTopDto> 
     public @Nullable TableTop edit(@NotNull TableTopDto dto) {
         TableTop object = tableTopRepository.findById(dto.getId()).orElse(null);
         if (object == null) return null;
-        object.setId(dto.getId());
+        object.setPerimeter(dto.getPerimeter());
+        object.setDepth(dto.getDepth());
+        object.setUser(dto.getUser());
+        object.setMaterial(dto.getMaterial());
+        object.setWidth(dto.getWidth());
+        object.setColorEdge(dto.getColorEdge());
+        object.setHeight(dto.getHeight());
+        object.setColorMain(dto.getColorMain());
+        object.setTimeAssembly(dto.getTimeAssembly());
+        object.setArticle(dto.getArticle());
         return tableTopRepository.save(object);
     }
 }
