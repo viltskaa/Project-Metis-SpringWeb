@@ -4,7 +4,6 @@ import com.example.projectmetis.dto.TableDto;
 import com.example.projectmetis.models.AdditionalParts;
 import com.example.projectmetis.models.Table;
 import com.example.projectmetis.models.TableTop;
-import com.example.projectmetis.models.User;
 import com.example.projectmetis.repos.TableRepository;
 import com.example.projectmetis.service.ServiceInterface;
 import com.mongodb.MongoException;

@@ -3,7 +3,6 @@ package com.example.projectmetis.service.Implements;
 import com.example.projectmetis.dto.AdditionalPartsDto;
 import com.example.projectmetis.models.AdditionalParts;
 import com.example.projectmetis.models.Table;
-import com.example.projectmetis.models.User;
 import com.example.projectmetis.repos.AdditionalPartsRepository;
 import com.example.projectmetis.service.ServiceInterface;
 import org.jetbrains.annotations.NotNull;
