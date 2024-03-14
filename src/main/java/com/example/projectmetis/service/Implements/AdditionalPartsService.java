@@ -2,6 +2,7 @@ package com.example.projectmetis.service.Implements;
 
 import com.example.projectmetis.dto.AdditionalPartsDto;
 import com.example.projectmetis.models.AdditionalParts;
+import com.example.projectmetis.models.Table;
 import com.example.projectmetis.models.User;
 import com.example.projectmetis.repos.AdditionalPartsRepository;
 import com.example.projectmetis.service.ServiceInterface;
@@ -71,5 +72,9 @@ public class AdditionalPartsService
         additionalParts.setTimeAssembly(additionalParts.getTimeAssembly());
         additionalParts.setArticle(additionalParts.getArticle());
         return additionalPartsRepository.save(additionalParts);
+    }
+
+    public AdditionalParts getByArticleAndTable(String article, Table table){
+        return additionalPartsRepository.findByArticleAndTable(article,table);
     }
 }
