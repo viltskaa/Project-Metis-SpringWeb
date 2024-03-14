@@ -72,11 +72,11 @@ public class UserService implements ServiceInterface<User, UserDto> {
 
     @Override
     public @Nullable User deleteByName(@NotNull String name) {
-        Optional<User> user = userRepository.findByName(name);
-        if (user.isEmpty()) return null;
+        User user = userRepository.findByName(name).orElse(null);
+        if (user == null) return null;
 
-        userRepository.deleteById(user.get().getId());
-        return user.get();
+        userRepository.deleteById(user.getId());
+        return user;
     }
 
     @Override
@@ -86,9 +86,9 @@ public class UserService implements ServiceInterface<User, UserDto> {
 
     @Override
     public @Nullable User edit(@NotNull UserDto dto) {
-        Optional<User> user = userRepository.findById(dto.getId());
-        if (user.isEmpty()) return null;
-        user.get().setName(dto.getName());
-        return userRepository.save(user.get());
+        User user = userRepository.findById(dto.getId()).orElse(null);
+        if (user == null) return null;
+        user.setName(dto.getName());
+        return userRepository.save(user);
     }
 }

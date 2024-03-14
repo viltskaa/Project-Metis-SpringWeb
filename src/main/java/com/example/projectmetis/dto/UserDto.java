@@ -8,6 +8,8 @@ public class UserDto {
     private Long id;
     private String name;
 
+    public UserDto(){}
+
     public UserDto(User user){
         id = user.getId();
         name = user.getName();
