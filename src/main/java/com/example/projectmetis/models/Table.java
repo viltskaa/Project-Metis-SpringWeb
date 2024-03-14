@@ -15,7 +15,6 @@ import java.util.List;
 public class Table {
     @Id
     private Long id;
-    @Indexed(unique = true)
     private String article;
     private Long timeAssembly;
     private List<Byte> qrCode;
