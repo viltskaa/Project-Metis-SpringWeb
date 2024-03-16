@@ -3,7 +3,6 @@ package com.example.projectmetis.service.Implements;
 import com.example.projectmetis.dto.TableDto;
 import com.example.projectmetis.models.AdditionalParts;
 import com.example.projectmetis.models.Table;
-import com.example.projectmetis.models.TableTop;
 import com.example.projectmetis.repos.TableRepository;
 import com.example.projectmetis.service.ServiceInterface;
 import com.mongodb.MongoException;
@@ -19,11 +18,12 @@ public class TableService implements ServiceInterface<Table, TableDto> {
     private final TableRepository tableRepository;
     private final AdditionalPartsService additionalPartsService;
     private final UserService userService;
+    private final TableTopService tableTopService;
 
     public Table create(String article,
                         Long timeAssembly,
                         List<Byte> qrCode,
-                        TableTop tableTop,
+                        Long tableTopId,
                         Long marketPlaceId,
                         Long userId, String ... parts_articles) {
         Table table = new Table();
@@ -32,7 +32,7 @@ public class TableService implements ServiceInterface<Table, TableDto> {
         table.setUser(userService.getById(userId));
         table.setMarketPlaceId(marketPlaceId);
         table.setQrCode(qrCode);
-        table.setTableTop(tableTop);
+        table.setTableTop(tableTopService.getById(tableTopId));
         table.setAdditionalParts(findAdPartsByArticles(parts_articles));
         return tableRepository.save(table);
     }
@@ -49,10 +49,11 @@ public class TableService implements ServiceInterface<Table, TableDto> {
     }
 
     public TableService(TableRepository tableRepository,
-                        AdditionalPartsService additionalPartsService, UserService userService) {
+                        AdditionalPartsService additionalPartsService, UserService userService, TableTopService tableTopService) {
         this.tableRepository = tableRepository;
         this.additionalPartsService = additionalPartsService;
         this.userService = userService;
+        this.tableTopService = tableTopService;
     }
 
     @Override
@@ -94,9 +95,7 @@ public class TableService implements ServiceInterface<Table, TableDto> {
         object.setArticle(dto.getArticle());
         object.setTimeAssembly(dto.getTimeAssembly());
         object.setQrCode(dto.getQrCode());
-        object.setTableTop(dto.getTableTop());
         object.setMarketPlaceId(dto.getMarketPlaceId());
-        object.setUser(dto.getUser());
         return tableRepository.save(object);
     }
 

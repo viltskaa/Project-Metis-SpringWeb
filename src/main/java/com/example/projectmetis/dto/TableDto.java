@@ -1,5 +1,6 @@
 package com.example.projectmetis.dto;
 
+import com.example.projectmetis.models.Table;
 import com.example.projectmetis.models.TableTop;
 import com.example.projectmetis.models.User;
 import lombok.Data;
@@ -15,4 +16,16 @@ public class TableDto {
     private TableTop tableTop;
     private Long marketPlaceId;
     private User user;
+
+    public TableDto(){}
+
+    public TableDto(Table table){
+        id=table.getId();
+        article=table.getArticle();
+        timeAssembly=table.getTimeAssembly();
+        qrCode=table.getQrCode();
+        tableTop=table.getTableTop();
+        marketPlaceId=table.getMarketPlaceId();
+        user=table.getUser();
+    }
 }

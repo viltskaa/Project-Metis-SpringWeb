@@ -83,7 +83,6 @@ public class TableTopService implements ServiceInterface<TableTop, TableTopDto> 
         if (object == null) return null;
         object.setPerimeter(dto.getPerimeter());
         object.setDepth(dto.getDepth());
-        object.setUser(dto.getUser());
         object.setMaterial(dto.getMaterial());
         object.setWidth(dto.getWidth());
         object.setColorEdge(dto.getColorEdge());
